@@ -15,8 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // # set static directory
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(path.resolve(), "public")));
 
 // # configure and connect routes
 app.use("/api/v1/countries/", countriesAPIRouter);

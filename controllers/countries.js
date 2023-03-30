@@ -1,5 +1,4 @@
 import { flagAsVisited, getCountries } from "../models/countryModel.js";
-
 import ejs from "ejs";
 
 const index = async (req, res, next) => {

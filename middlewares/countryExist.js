@@ -8,14 +8,6 @@ const countryExist = async (req, res, next) => {
   const sql =
     "SELECT * FROM travelCountries WHERE alpha2code = $1 OR alpha3code = $1 LIMIT 1";
 
-  //   pool
-  //     .query(sql, [code])
-  //     .then(({ rows: [travelCountry] }) => {
-  //       if (!travelCountry) return next("Non existing country");
-
-  //       return next();
-  //     })
-  //     .catch((e) => next(e));
   try {
     const {
       rows: [travelCountry],
