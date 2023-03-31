@@ -10,9 +10,9 @@ const countryExist = async (req, res, next) => {
 
   try {
     const {
-      rows: [travelCountry],
+      rows: [country],
     } = await pool.query(sql, [code]);
-    if (!travelCountry) return next("Non existing country");
+    if (!country) return next("Non existing country");
     return next();
   } catch (err) {
     next(err);

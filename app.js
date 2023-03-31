@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 // # set static directory
 app.use(express.static(path.join(path.resolve(), "public")));
 
+// set the view engine to ejs
+app.set("view engine", "ejs");
+
 // # configure and connect routes
 app.use("/api/v1/countries/", countriesAPIRouter);
 app.use("/countries/", countriesRouter);

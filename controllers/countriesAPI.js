@@ -22,7 +22,8 @@ const show = async (req, res, next) => {
   const { code } = req.params;
 
   try {
-    const country = getCountryByCode(code);
+    const country = await getCountryByCode(code);
+    if (!country) throw new Error();
     res.json(country);
   } catch (error) {
     next("Non existing country");
@@ -47,7 +48,13 @@ const update = async (req, res) => {
   const { name, alpha2code, alpha3code, visited } = req.body;
 
   try {
-    const country = await updateCountry(name, alpha2code, alpha3code, visited);
+    const country = await updateCountry(
+      code,
+      name,
+      alpha2code,
+      alpha3code,
+      visited
+    );
     res.status(200).json(country);
   } catch (error) {
     res.status(400).json({ error: error.message });
